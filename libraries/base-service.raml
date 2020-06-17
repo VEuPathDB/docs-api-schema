@@ -3,7 +3,7 @@
 title: Service API
 
 uses:
-  err: ./errors.raml
+  error: ./errors.raml
 
 #
 # Predefined Services
@@ -30,7 +30,7 @@ uses:
       500:
         body:
           application/json:
-            type: err.Server
+            type: error.Server
 
 /metrics:
   displayName: Service Metrics
