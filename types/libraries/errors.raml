@@ -1,0 +1,99 @@
+#%RAML 1.0 Library
+
+types:
+  Error:
+    type: object
+    properties:
+      status: string
+      message: string
+    discriminator: status
+    additionalProperties: false
+
+  BadRequest:
+    displayName: Bad Request
+    description: Request could not be parsed or was otherwise unusable.
+    type: Error
+    discriminatorValue: bad-request
+    example:
+      status: bad-request
+      message: malformed JSON
+
+  Unauthorized:
+    displayName: Unauthorized
+    description: |
+      Unauthenticated client requested a resource that requires authentication.
+    type: Error
+    discriminatorValue: unauthorized
+    example:
+      status: unauthorized
+      message: users must be logged in to access this resource
+
+  Forbidden:
+    displayName: Forbidden
+    description: |
+      Server understood the request but is refusing it.
+
+      Could be caused by incorrect instructions or an authenticated client
+      requesting a resource or action that requires permissions that the client
+      does not have assigned.
+    type: Error
+    discriminatorValue: forbidden
+    example:
+      status: forbidden
+      message: the current user is not permitted to perform this action
+
+  NotFound:
+    displayName: Not Found
+    description: The requested resource was not found on this server.
+    type: Error
+    discriminatorValue: not-found
+    example:
+      status: not-found
+      message: the requested resource could not be found
+
+  MethodNotAllowed:
+    displayName: Method Not Allowed
+    description: |
+      The HTTP method used to request a resource is not allowed or configured by
+      the server.
+    type: Error
+    discriminatorValue: bad-method
+    example:
+      status: bad-method
+      message: PUT requests are not permitted on this endpoint
+
+  UnprocessableEntity:
+    displayName: Unprocessable Entity
+    description: |
+      The request payload or parameters are correctly structured but fail resource
+      specific validation.
+    type: Error
+    discriminatorValue: invalid-input
+    properties:
+      errors:
+        properties:
+          general:
+            description: Non-field specific errors.
+            type: string[]
+          byKey:
+            description: Field specific errors
+            properties:
+              //: string[]
+    example:
+      status: invalid-input
+      message: JSON validation failed
+      errors:
+        general: []
+        byKey:
+          id: [ Given ID value does not point to an existing record. ]
+
+  Server:
+    displayName: Internal Server Error
+    type: Error
+    discriminatorValue: server-error
+    properties:
+      requestId: string
+    example:
+      status: server-error
+      message: Datastore connection lost
+      requestId: b296c3d9-4032-41b1-906e-c97ccfc447e3
