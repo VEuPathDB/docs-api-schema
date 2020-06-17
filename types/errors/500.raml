@@ -2,10 +2,7 @@
 
 displayName: 500 Response
 type: !include error.raml
+discriminator: status
 discriminatorValue: server-error
 properties:
   requestId: string
-example:
-  status: server-error
-  message: Datastore connection lost
-  requestId: b296c3d9-4032-41b1-906e-c97ccfc447e3

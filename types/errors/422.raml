@@ -5,6 +5,7 @@ description: |
   The request payload or parameters are correctly structured but fail resource
   specific validation.
 type: !include error.raml
+discriminator: status
 discriminatorValue: invalid-input
 properties:
   errors:
@@ -16,10 +17,3 @@ properties:
         description: Field specific errors
         properties:
           //: string[]
-example:
-  status: invalid-input
-  message: JSON validation failed
-  errors:
-    general: []
-    byKey:
-      id: Given ID value does not point to an existing record.

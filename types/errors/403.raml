@@ -8,7 +8,5 @@ description: |
   requesting a resource or action that requires permissions that the client does
   not have assigned.
 type: !include error.raml
+discriminator: status
 discriminatorValue: forbidden
-example:
-  status: forbidden
-  message: the current user is not permitted to perform this action

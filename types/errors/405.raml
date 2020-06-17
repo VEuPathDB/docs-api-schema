@@ -5,7 +5,5 @@ description: |
   The HTTP method used to request a resource is not allowed or configured by the
   server.
 type: !include error.raml
+discriminator: status
 discriminatorValue: bad-method
-example:
-  status: bad-method
-  message: PUT requests are not permitted on this endpoint

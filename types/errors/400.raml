@@ -3,7 +3,5 @@
 displayName: Bad Request
 description: Request could not be parsed or was otherwise unusable.
 type: !include error.raml
+discriminator: status
 discriminatorValue: bad-request
-example:
-  status: bad-request
-  message: malformed JSON
