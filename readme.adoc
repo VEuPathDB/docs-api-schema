@@ -1,3 +1,107 @@
 = Service API Type Definitions
+:source-language: yaml
+:source-highlighter: pygments
+:source-linenums-option:
+:pygments-style: monokai
 
-Common/generic type fragments for use in defining a standalone service API.
+Common/generic RAML fragments for use in defining a standalone service API.
+
+== Error Types
+
+https://veupathdb.github.io/docs-api-schema/types/errors/400.raml[`error/400`]::
+Bad Request
+ifndef::env-github[]
++
+.Source
+[%collapsible]
+====
+[source]
+----
+include::types/errors/400.raml[]
+----
+====
+endif::[]
+
+https://veupathdb.github.io/docs-api-schema/types/errors/401.raml[`error/401`]::
+Unauthorized
+ifndef::env-github[]
++
+.Source
+[%collapsible]
+====
+[source]
+----
+include::types/errors/401.raml[]
+----
+====
+endif::[]
+
+https://veupathdb.github.io/docs-api-schema/types/errors/403.raml[`error/403`]::
+Forbidden
+ifndef::env-github[]
++
+.Source
+[%collapsible]
+====
+[source]
+----
+include::types/errors/403.raml[]
+----
+====
+endif::[]
+
+https://veupathdb.github.io/docs-api-schema/types/errors/404.raml[`error/404`]::
+Not Found
+ifndef::env-github[]
++
+.Source
+[%collapsible]
+====
+[source]
+----
+include::types/errors/404.raml[]
+----
+====
+endif::[]
+
+https://veupathdb.github.io/docs-api-schema/types/errors/405.raml[`error/405`]::
+Unsupported Request Method
+ifndef::env-github[]
++
+.Source
+[%collapsible]
+====
+[source]
+----
+include::types/errors/405.raml[]
+----
+====
+endif::[]
+
+https://veupathdb.github.io/docs-api-schema/types/errors/422.raml[`error/422`]::
+Unprocessable Entity
+ifndef::env-github[]
++
+.Source
+[%collapsible]
+====
+[source]
+----
+include::types/errors/422.raml[]
+----
+====
+endif::[]
+
+https://veupathdb.github.io/docs-api-schema/types/errors/500.raml[`error/500`]::
+Bad Request Error.
+ifndef::env-github[]
++
+.Source
+[%collapsible]
+====
+[source]
+----
+include::types/errors/500.raml[]
+----
+====
+endif::[]
