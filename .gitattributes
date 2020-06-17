@@ -1,0 +1,3 @@
+*.raml linguist-detectable
+*.json linguist-detectable
+*.html linguist-documentation

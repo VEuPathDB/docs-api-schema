@@ -1,0 +1,9 @@
+#%RAML 1.0 DataType
+
+displayName: Not Found
+description: The requested resource was not found on this server.
+type: !include error.raml
+discriminatorValue: not-found
+example:
+  status: not-found
+  message: the requested resource could not be found

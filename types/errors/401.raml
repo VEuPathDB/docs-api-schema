@@ -1,0 +1,9 @@
+#%RAML 1.0 DataType
+
+displayName: Unauthorized
+description: Unauthenticated client requested a resource that requires authentication.
+type: !include error.raml
+discriminatorValue: unauthorized
+example:
+  status: unauthorized
+  message: users must be logged in to access this resource

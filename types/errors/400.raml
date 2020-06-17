@@ -1,0 +1,9 @@
+#%RAML 1.0 DataType
+
+displayName: Bad Request
+description: Request could not be parsed or was otherwise unusable.
+type: !include error.raml
+discriminatorValue: bad-request
+example:
+  status: bad-request
+  message: malformed JSON

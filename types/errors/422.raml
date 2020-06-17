@@ -1,0 +1,25 @@
+#%RAML 1.0 DataType
+
+displayName: Unprocessable Entity
+description: |
+  The request payload or parameters are correctly structured but fail resource
+  specific validation.
+type: !include error.raml
+discriminatorValue: invalid-input
+properties:
+  errors:
+    properties:
+      general:
+        description: Non-field specific errors.
+        type: string[]
+      byKey:
+        description: Field specific errors
+        properties:
+          //: string[]
+example:
+  status: invalid-input
+  message: JSON validation failed
+  errors:
+    general: []
+    byKey:
+      id: Given ID value does not point to an existing record.
