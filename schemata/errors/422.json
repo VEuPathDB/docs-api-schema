@@ -1,0 +1,57 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://veupathdb.github.io/docs-api-schema/schemata/errors/422.json",
+  "title": "Unprocessable Entity",
+  "description": "422 error response body.",
+  "type": "object",
+  "properties": {
+    "status": {
+      "type": "string",
+      "enum": [
+        "invalid-input"
+      ]
+    },
+    "errors": {
+      "type": "object",
+      "properties": {
+        "general": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "byKey": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "required": [
+        "general",
+        "byKey"
+      ]
+    }
+  },
+  "required": [
+    "status",
+    "errors"
+  ],
+  "additionalProperties": false,
+  "examples": [
+    {
+      "status": "invalid-input",
+      "errors": {
+        "general": [],
+        "byKey": {
+          "id": [
+            "given ID value does not point to an existing record"
+          ]
+        }
+      }
+    }
+  ]
+}

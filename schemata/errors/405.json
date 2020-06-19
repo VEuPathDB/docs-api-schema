@@ -1,0 +1,29 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://veupathdb.github.io/docs-api-schema/schemata/errors/405.json",
+  "title": "Method Not Allowed",
+  "description": "405 error response body.",
+  "type": "object",
+  "properties": {
+    "status": {
+      "type": "string",
+      "enum": [
+        "bad-method"
+      ]
+    },
+    "message": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "status",
+    "message"
+  ],
+  "additionalProperties": false,
+  "examples": [
+    {
+      "status": "bad-method",
+      "message": "PUT requests are not permitted on this endpoint"
+    }
+  ]
+}
