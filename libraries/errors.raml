@@ -9,7 +9,7 @@ types:
     discriminator: status
     additionalProperties: false
 
-  BadRequest:
+  BadRequestError:
     displayName: Bad Request
     description: Request could not be parsed or was otherwise unusable.
     type: Error
@@ -18,7 +18,7 @@ types:
       status: bad-request
       message: malformed JSON
 
-  Unauthorized:
+  UnauthorizedError:
     displayName: Unauthorized
     description: |
       Unauthenticated client requested a resource that requires authentication.
@@ -28,7 +28,7 @@ types:
       status: unauthorized
       message: users must be logged in to access this resource
 
-  Forbidden:
+  ForbiddenError:
     displayName: Forbidden
     description: |
       Server understood the request but is refusing it.
@@ -42,7 +42,7 @@ types:
       status: forbidden
       message: the current user is not permitted to perform this action
 
-  NotFound:
+  NotFoundError:
     displayName: Not Found
     description: The requested resource was not found on this server.
     type: Error
@@ -51,7 +51,7 @@ types:
       status: not-found
       message: the requested resource could not be found
 
-  MethodNotAllowed:
+  MethodNotAllowedError:
     displayName: Method Not Allowed
     description: |
       The HTTP method used to request a resource is not allowed or configured by
@@ -62,7 +62,7 @@ types:
       status: bad-method
       message: PUT requests are not permitted on this endpoint
 
-  UnprocessableEntity:
+  UnprocessableEntityError:
     displayName: Unprocessable Entity
     description: |
       The request payload or parameters are correctly structured but fail resource
@@ -87,7 +87,7 @@ types:
         byKey:
           id: [ Given ID value does not point to an existing record. ]
 
-  Server:
+  ServerError:
     displayName: Internal Server Error
     type: Error
     discriminatorValue: server-error
