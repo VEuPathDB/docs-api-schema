@@ -4,10 +4,13 @@ types:
   Error:
     type: object
     properties:
-      status: string
+      status: ErrorType
       message: string
     discriminator: status
     additionalProperties: false
+
+  ErrorType:
+    enum: [ 'bad-request', 'unauthorized', 'forbidden', 'not-found', 'bad-method', 'invalid-input', 'server-error' ]
 
   BadRequestError:
     displayName: Bad Request
