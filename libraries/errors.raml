@@ -64,6 +64,14 @@ types:
     example:
       status: bad-method
       message: PUT requests are not permitted on this endpoint
+  
+  ConflictError:
+    displayName: Conflict
+    description: |
+      The request could not be completed due to a conflict with the current
+      state of the resource.
+
+      If you submitted a resource, that resource may already exist.
 
   UnprocessableEntityError:
     displayName: Unprocessable Entity

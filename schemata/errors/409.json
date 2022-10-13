@@ -1,0 +1,29 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://veupathdb.github.io/docs-api-schema/schemata/errors/409.json",
+  "title": "Bad Request",
+  "description": "400 error response body.",
+  "type": "object",
+  "properties": {
+    "status": {
+      "type": "string",
+      "enum": [
+        "conflict"
+      ]
+    },
+    "message": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "status",
+    "message"
+  ],
+  "additionalProperties": false,
+  "examples": [
+    {
+      "status": "conflict",
+      "message": "malformed JSON"
+    }
+  ]
+}
