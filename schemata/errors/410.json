@@ -1,8 +1,8 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "$id": "https://veupathdb.github.io/docs-api-schema/schemata/errors/409.json",
+  "$id": "https://veupathdb.github.io/docs-api-schema/schemata/errors/410.json",
   "title": "Bad Request",
-  "description": "409 error response body.",
+  "description": "410 error response body.",
   "type": "object",
   "properties": {
     "status": {
