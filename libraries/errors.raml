@@ -10,7 +10,16 @@ types:
     additionalProperties: false
 
   ErrorType:
-    enum: [ 'bad-request', 'unauthorized', 'forbidden', 'not-found', 'bad-method', 'invalid-input', 'server-error' ]
+    enum:
+    - 'bad-request'
+    - 'unauthorized'
+    - 'forbidden'
+    - 'not-found'
+    - 'bad-method'
+    - 'conflict'
+    - 'gone'
+    - 'invalid-input'
+    - 'server-error'
 
   BadRequestError:
     displayName: Bad Request
@@ -64,7 +73,7 @@ types:
     example:
       status: bad-method
       message: PUT requests are not permitted on this endpoint
-  
+
   ConflictError:
     displayName: Conflict
     description: |
@@ -72,12 +81,22 @@ types:
       state of the resource.
 
       If you submitted a resource, that resource may already exist.
-  
+    type: Error
+    discriminatorValue: conflict
+    example:
+      status: conflict
+      message: Target resource already exists and cannot be overwritten.
+
   GoneError:
     displayName: Gone
     description: |
       The request could not be completed due to the requested resource or its
       underlying data no longer being present on the server.
+    type: Error
+    discriminatorValue: gone
+    example:
+      status: gone
+      message: The target resource or its dependencies no longer exists.
 
   UnprocessableEntityError:
     displayName: Unprocessable Entity
