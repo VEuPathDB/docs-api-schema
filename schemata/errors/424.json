@@ -1,0 +1,34 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://veupathdb.github.io/docs-api-schema/schemata/errors/424.json",
+  "title": "Failed Dependency",
+  "description": "424 error response body.",
+  "type": "object",
+  "properties": {
+    "status": {
+      "type": "string",
+      "enum": [
+        "failed-dependency"
+      ]
+    },
+    "dependency": {
+      "type": "string"
+    },
+    "message": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "status",
+    "dependency",
+    "message"
+  ],
+  "additionalProperties": false,
+  "examples": [
+    {
+      "status": "failed-dependency",
+      "dependency": "google.com",
+      "message": "unexpected status code 403 from google.com"
+    }
+  ]
+}

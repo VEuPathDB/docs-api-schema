@@ -8,7 +8,7 @@
     "status": {
       "type": "string",
       "enum": [
-        "conflict"
+        "gone"
       ]
     },
     "message": {
@@ -22,7 +22,7 @@
   "additionalProperties": false,
   "examples": [
     {
-      "status": "conflict",
+      "status": "gone",
       "message": "malformed JSON"
     }
   ]

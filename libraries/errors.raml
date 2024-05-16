@@ -19,8 +19,10 @@ types:
     - 'conflict'
     - 'gone'
     - 'invalid-input'
+    - 'failed-dependency'
     - 'server-error'
 
+  # 400
   BadRequestError:
     displayName: Bad Request
     description: Request could not be parsed or was otherwise unusable.
@@ -30,6 +32,7 @@ types:
       status: bad-request
       message: malformed JSON
 
+  # 401
   UnauthorizedError:
     displayName: Unauthorized
     description: |
@@ -40,6 +43,7 @@ types:
       status: unauthorized
       message: users must be logged in to access this resource
 
+  # 403
   ForbiddenError:
     displayName: Forbidden
     description: |
@@ -54,6 +58,7 @@ types:
       status: forbidden
       message: the current user is not permitted to perform this action
 
+  # 404
   NotFoundError:
     displayName: Not Found
     description: The requested resource was not found on this server.
@@ -63,6 +68,7 @@ types:
       status: not-found
       message: the requested resource could not be found
 
+  # 405
   MethodNotAllowedError:
     displayName: Method Not Allowed
     description: |
@@ -74,6 +80,7 @@ types:
       status: bad-method
       message: PUT requests are not permitted on this endpoint
 
+  # 409
   ConflictError:
     displayName: Conflict
     description: |
@@ -87,6 +94,7 @@ types:
       status: conflict
       message: Target resource already exists and cannot be overwritten.
 
+  # 410
   GoneError:
     displayName: Gone
     description: |
@@ -98,6 +106,7 @@ types:
       status: gone
       message: The target resource or its dependencies no longer exists.
 
+  # 422
   UnprocessableEntityError:
     displayName: Unprocessable Entity
     description: |
@@ -123,6 +132,19 @@ types:
         byKey:
           id: [ Given ID value does not point to an existing record. ]
 
+  # 424
+  FailedDependencyError:
+    displayName: Failed Dependency Error
+    type: Error
+    discriminatorValue: failed-dependency
+    properties:
+      dependency: string
+    example:
+      status: failed-dependency
+      dependency: google.com
+      message: unexpected status code 403 from google.com
+
+  # 500
   ServerError:
     displayName: Internal Server Error
     type: Error
