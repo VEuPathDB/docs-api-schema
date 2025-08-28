@@ -20,6 +20,7 @@ types:
     - 'gone'
     - 'invalid-input'
     - 'failed-dependency'
+    - 'too-early'
     - 'server-error'
 
   # 400
@@ -143,6 +144,15 @@ types:
       status: failed-dependency
       dependency: google.com
       message: unexpected status code 403 from google.com
+  
+  # 425
+  TooEarlyError:
+    displayName: Too Early Error
+    type: Error
+    discriminatorValue: too-early
+    example:
+      status: too-early
+      message: The requested resource is not yet available.
 
   # 500
   ServerError:
